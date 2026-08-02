@@ -1,7 +1,7 @@
 export const BUSINESS = {
   name: "Madurai Jashwitha Travels",
   tagline: "Your Trusted Travel Partner in Madurai",
-  address: "Sivasakthi Street, Suriya Nagar, Madurai - 625007",
+  address: "Sivasakthi Nagar Extension area, Suriya Nagar, Madurai - 625007",
   email: "maduraijashwithatravels@gmail.com",
   phones: ["8807070754", "9952727409", "9790615559"],
   whatsapp: "919952727409",

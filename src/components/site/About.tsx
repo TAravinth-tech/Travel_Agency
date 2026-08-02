@@ -1,8 +1,8 @@
 import { ShieldCheck, Clock, Users, MapPin, Award } from "lucide-react";
-import aboutImg from "@/assets/about.png";
+import aboutImg from "@/assets/about2.png";
 import carSedan from "@/assets/car-sedan.jpg";
 import carSuv from "@/assets/crysta.png";
-import Ertiga from "@/assets/car1.jpg";
+import Ertiga from "@/assets/kia.png";
 import Innova from "@/assets/car3.png";
 import Innova1 from "@/assets/innova.png";
 import { BUSINESS } from "@/lib/site";

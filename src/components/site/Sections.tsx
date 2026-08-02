@@ -37,45 +37,69 @@ const BADGES = [
 export function About() {
   return (
     <section id="about" className="motif py-20 sm:py-24">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 lg:grid-cols-2">
+      <div className="mx-auto max-w-7xl px-4">
         <Reveal>
           <p className="text-xs font-semibold tracking-[0.28em] text-gold-dark uppercase">
-            About Us
+            SOUTH INDIA'S TRUSTED TRAVEL AGENCY
           </p>
-          <h2 className="mt-4 text-3xl leading-tight sm:text-4xl">
-            A Madurai family of drivers who treat every journey as a pilgrimage
+          <h2 className="mt-4 max-w-3xl text-3xl leading-tight sm:text-4xl">
+            A family of drivers who treat every journey <br /> like their own
           </h2>
-          <p className="mt-5 text-sm leading-relaxed text-muted-foreground sm:text-base">
-            {BUSINESS.name} has been carrying families, pilgrims and corporate travellers across
-            Tamil Nadu and Kerala with clean vehicles, courteous drivers and honest, transparent
-            fares. From a quick airport drop to a ten-day temple circuit, we plan the route, handle
-            the paperwork and keep you comfortable from the first kilometre to the last.
-          </p>
-          <div className="mt-8 grid grid-cols-2 gap-3">
-            {BADGES.map((b) => (
-              <div
-                key={b.label}
-                className="flex items-center gap-3 rounded-xl border border-gold/30 bg-card px-4 py-3 shadow-soft"
-              >
-                <b.icon className="h-5 w-5 shrink-0 text-gold-dark" />
-                <span className="text-sm font-medium text-primary">{b.label}</span>
-              </div>
-            ))}
-          </div>
         </Reveal>
-        <Reveal delay={120}>
-          <div className="relative">
-            <div className="absolute -inset-3 -z-10 rounded-3xl border border-gold/40" />
-            <img
-              src={aboutImg}
-              alt="Our Innova cab parked outside a Madurai temple"
-              loading="lazy"
-              width={1024}
-              height={800}
-              className="h-full w-full rounded-2xl object-cover shadow-lift"
-            />
-          </div>
-        </Reveal>
+
+        <div className="mt-10 grid gap-12 lg:grid-cols-2 lg:items-start">
+          <Reveal>
+            <div className="space-y-5 text-sm leading-relaxed text-muted-foreground sm:text-base">
+              <p>
+                Welcome to {BUSINESS.name} - your one stop for the best Tours and Travels in
+                Madurai. We offer reliable, affordable and customer-centric travel services. We
+                have a range of Customised Madurai Tour Packages meant specifically for families,
+                couples, corporate, students, and individuals. Whatever your purpose be – a
+                pilgrimage tour, weekend tour, honeymoon, family tour, or outstation holidays; we
+                assure that all of our trips are comfortable and safe for you.
+              </p>
+              <p>
+                We meticulously plan every travel package in order to give you an experience which
+                fits your travel tastes and budget. Our travel packages include well-maintained
+                vehicles, professional drivers and personal assistance throughout your journey. At
+                Madurai Jashwitha Travels, we cater to tourists of Madurai and nearby places.
+              </p>
+              <p>
+                Customer satisfaction is our motto and we aim at giving you memorable travel
+                experiences through reliable transport and meticulously planned itineraries of
+                Tamil Nadu, Kerala, Karnataka and other tourist locations. If you are looking for
+                trusted Tours and Travels in Madurai with affordable Madurai Tour Packages, then
+                visit Madurai Jashwitha Travels.
+              </p>
+            </div>
+
+            <div className="mt-8 grid grid-cols-2 gap-3 sm:max-w-md">
+              {BADGES.map((b) => (
+                <div
+                  key={b.label}
+                  className="flex items-center gap-3 rounded-xl border border-gold/30 bg-card px-4 py-3 shadow-soft"
+                >
+                  <b.icon className="h-5 w-5 shrink-0 text-gold-dark" />
+                  <span className="text-sm font-medium text-primary">{b.label}</span>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <div className="relative lg:sticky lg:top-24">
+              <div className="absolute -inset-3 -z-10 rounded-3xl border border-gold/40" />
+              <img
+                src={aboutImg}
+                alt="Our Innova cab parked outside a Madurai temple"
+                loading="lazy"
+                width={1024}
+                height={800}
+                className="h-full w-full rounded-2xl object-cover shadow-lift"
+              />
+            </div>
+          </Reveal>
+        </div>
       </div>
     </section>
   );

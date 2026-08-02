@@ -4,13 +4,13 @@ import carSedan from "@/assets/car-sedan.jpg";
 import carSuv from "@/assets/crysta.png";
 import carTempo from "@/assets/car-tempo.jpg";
 import carMinivan from "@/assets/car-minivan.jpg";
-import  Ertiga from "@/assets/car1.jpg";
+import  Ertiga from "@/assets/kia.png";
 import  Innova from "@/assets/car3.png";
 import  Innova1 from "@/assets/innova.png";
 import { BUSINESS, TRIP_TYPES, VEHICLE_TYPES, waLink } from "@/lib/site";
 import { Reveal, SectionHeading } from "./Reveal";
 import { MapPin, PhoneCall, ShieldCheck, Clock, Star } from "lucide-react";
-
+import { Link } from "@/lib/router-shim";
 
 
 const FLEET = [
@@ -21,16 +21,16 @@ const FLEET = [
     rent: "₹1,500 / day",
     fuel: "₹11 / km",
     above: "₹13 / km",
-    bata: "₹400 / day",
+    
   },
   {
     img: carSuv,
     name: "Innova Crysta",
-    seats: "7 + 1 Seater",
+    seats: "7 + 1 / 6 + 1 Seater",
     rent: "₹2,500 / day",
     fuel: "₹15 / km",
     above: "₹21 / km",
-    bata: "₹500 / day",
+    
   },
   {
     img: Innova,
@@ -39,27 +39,29 @@ const FLEET = [
     rent: "₹2,600 / day",
     fuel: "₹16 / km",
     above: "₹22 / km",
-    bata: "₹700 / day",
+    
   },
   {
     img: Ertiga,
     name: "Ertiga / Kia Carens",
-    seats: "8 + 1 Seater",
+    seats: "7 + 1 Seater",
     rent: "₹1,900 / day",
     fuel: "₹12 / km",
     above: "₹16 / km",
-    bata: "₹450 / day",
+    
   },
   {
     img: Innova1,
     name: "Innova",
-    seats: "8 + 1 Seater",
+    seats: "7 + 1 Seater",
     rent: "₹2,000 / day",
     fuel: "₹11 / km",
     above: "₹17 / km",
-    bata: "₹450 / day",
+    
   },
 ];
+
+
 
 export function Fleet() {
   const [view, setView] = useState<"cards" | "table">("cards");
@@ -113,7 +115,6 @@ export function Fleet() {
                         ["Rent / day (below 300 km)", f.rent],
                         ["Fuel charge / km", f.fuel],
                         ["Rate above 300 km", f.above],
-                        ["Driver bata", f.bata],
                       ].map(([k, v]) => (
                         <div key={k} className="flex justify-between gap-2 border-b border-border/70 pb-1.5">
                           <dt className="text-muted-foreground">{k}</dt>
@@ -121,16 +122,13 @@ export function Fleet() {
                         </div>
                       ))}
                     </dl>
-                    <a
-                      href={waLink(
-                        `Hi ${BUSINESS.name}, I would like to book the ${f.name}. Please share availability.`,
-                      )}
-                      target="_blank"
-                      rel="noreferrer"
+                    <Link
+                      to="/contact"
+                      state={{ vehicle: f.name }}
                       className="mt-5 rounded-full bg-gold-gradient px-4 py-2.5 text-center text-sm font-semibold text-primary transition-transform hover:scale-[1.02]"
                     >
                       Book This Vehicle
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </Reveal>
@@ -141,7 +139,7 @@ export function Fleet() {
             <table className="w-full min-w-[720px] text-left text-sm">
               <thead className="bg-green-gradient text-primary-foreground">
                 <tr>
-                  {["Vehicle", "Seats", "Rent / day", "Fuel / km", "Above 300 km", "Driver bata", ""].map(
+                  {["Vehicle", "Seats", "Rent / day", "Fuel / km", "Above 300 km", ""].map(
                     (h) => (
                       <th key={h} className="px-4 py-3 font-semibold">
                         {h}
@@ -158,16 +156,14 @@ export function Fleet() {
                     <td className="px-4 py-3">{f.rent}</td>
                     <td className="px-4 py-3">{f.fuel}</td>
                     <td className="px-4 py-3">{f.above}</td>
-                    <td className="px-4 py-3">{f.bata}</td>
                     <td className="px-4 py-3">
-                      <a
-                        href={waLink(`Hi ${BUSINESS.name}, I would like to book the ${f.name}.`)}
-                        target="_blank"
-                        rel="noreferrer"
+                      <Link
+                        to="/contact"
+                        state={{ vehicle: f.name }}
                         className="rounded-full border border-gold px-4 py-1.5 text-xs font-semibold text-primary transition-colors hover:bg-gold-gradient"
                       >
                         Book
-                      </a>
+                      </Link>
                     </td>
                   </tr>
                 ))}
