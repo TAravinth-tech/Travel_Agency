@@ -12,8 +12,22 @@ import { Reveal, SectionHeading } from "./Reveal";
 import { MapPin, PhoneCall, ShieldCheck, Clock, Star } from "lucide-react";
 import { Link } from "@/lib/router-shim";
 
+type FleetVariant = {
+  label: string;
+  rent: string;
+};
 
-const FLEET = [
+type FleetItem = {
+  img: string;
+  name: string;
+  seats: string;
+  fuel: string;
+  above: string;
+  rent?: string;
+  variants?: FleetVariant[];
+};
+
+const FLEET: FleetItem[] = [
   {
     img: carSedan,
     name: "Sedan (Etios / Dzire)",
@@ -21,7 +35,6 @@ const FLEET = [
     rent: "₹1,500 / day",
     fuel: "₹11 / km",
     above: "₹13 / km",
-    
   },
   {
     img: carSuv,
@@ -30,16 +43,17 @@ const FLEET = [
     rent: "₹2,500 / day",
     fuel: "₹15 / km",
     above: "₹21 / km",
-    
   },
   {
     img: Innova,
-    name: "Tempo Traveller (12 / 18 Seater)",
+    name: "Tempo Traveller",
     seats: "12 – 18 Seater",
-    rent: "₹3,600 / day",
     fuel: "₹18 / km",
     above: "₹25 / km",
-    
+    variants: [
+      { label: "12 Seater", rent: "₹2,600 / day" },
+      { label: "18 Seater", rent: "₹3,600 / day" },
+    ],
   },
   {
     img: Ertiga,
@@ -48,7 +62,6 @@ const FLEET = [
     rent: "₹1,900 / day",
     fuel: "₹12 / km",
     above: "₹16 / km",
-    
   },
   {
     img: Innova1,
@@ -57,11 +70,8 @@ const FLEET = [
     rent: "₹2,000 / day",
     fuel: "₹11 / km",
     above: "₹17 / km",
-    
   },
 ];
-
-
 
 export function Fleet() {
   const [view, setView] = useState<"cards" | "table">("cards");
@@ -111,8 +121,33 @@ export function Fleet() {
                       <Users className="h-3.5 w-3.5" /> {f.seats}
                     </p>
                     <dl className="mt-4 flex-1 space-y-2 text-sm">
+                      {f.variants ? (
+                        <div className="border-b border-border/70 pb-1.5">
+                          <dt className="text-muted-foreground">Rent / day (below 300 km)</dt>
+                          <dd className="mt-1.5 space-y-1">
+                            {f.variants.map((v) => (
+                              <div
+                                key={v.label}
+                                className="flex justify-between rounded-lg bg-secondary/60 px-2.5 py-1.5"
+                              >
+                                <span className="text-xs font-medium text-muted-foreground">
+                                  {v.label}
+                                </span>
+                                <span className="text-sm font-semibold text-primary">
+                                  {v.rent}
+                                </span>
+                              </div>
+                            ))}
+                          </dd>
+                        </div>
+                      ) : (
+                        <div className="flex justify-between gap-2 border-b border-border/70 pb-1.5">
+                          <dt className="text-muted-foreground">Rent / day (below 300 km)</dt>
+                          <dd className="font-semibold text-primary">{f.rent}</dd>
+                        </div>
+                      )}
+
                       {[
-                        ["Rent / day (below 300 km)", f.rent],
                         ["Fuel charge / km", f.fuel],
                         ["Rate above 300 km", f.above],
                       ].map(([k, v]) => (
@@ -153,7 +188,20 @@ export function Fleet() {
                   <tr key={f.name} className="border-t border-border">
                     <td className="px-4 py-3 font-medium text-primary">{f.name}</td>
                     <td className="px-4 py-3 text-muted-foreground">{f.seats}</td>
-                    <td className="px-4 py-3">{f.rent}</td>
+                    <td className="px-4 py-3">
+                      {f.variants ? (
+                        <div className="space-y-1">
+                          {f.variants.map((v) => (
+                            <div key={v.label} className="whitespace-nowrap">
+                              <span className="text-xs text-muted-foreground">{v.label}: </span>
+                              <span className="font-medium">{v.rent}</span>
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        f.rent
+                      )}
+                    </td>
                     <td className="px-4 py-3">{f.fuel}</td>
                     <td className="px-4 py-3">{f.above}</td>
                     <td className="px-4 py-3">
