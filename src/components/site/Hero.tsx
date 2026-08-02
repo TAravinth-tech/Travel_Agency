@@ -55,14 +55,14 @@ Phone: ${phone || "Not specified"}`;
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
-              to="/tour_and_tariff"
+              to="/contact"
               className="rounded-full bg-gold-gradient px-7 py-3.5 text-sm font-semibold text-primary shadow-lift transition-transform hover:scale-[1.03]"
             >
               Book Your Trip
             </Link>
 
             <a
-              href={`tel:+91${BUSINESS.phones[1]}`}
+              href={`tel:+91${BUSINESS.phones[0]}`}
               className="flex items-center gap-2 rounded-full border border-gold/70 px-7 py-3.5 text-sm font-semibold text-gold-light transition-colors hover:bg-gold hover:text-primary"
             >
               <Phone className="h-4 w-4" /> Call Now

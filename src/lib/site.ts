@@ -4,7 +4,7 @@ export const BUSINESS = {
   address: "Sivasakthi Nagar Extension area, Suriya Nagar, Madurai - 625007",
   email: "maduraijashwithatravels@gmail.com",
   phones: ["8807070754", "9952727409", "9790615559"],
-  whatsapp: "919952727409",
+  whatsapp: "918807070754",
   hours: "Open 24 / 7 — All days",
 };
  

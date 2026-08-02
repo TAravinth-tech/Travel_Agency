@@ -36,9 +36,9 @@ const FLEET = [
     img: Innova,
     name: "Tempo Traveller (12 / 18 Seater)",
     seats: "12 – 18 Seater",
-    rent: "₹2,600 / day",
-    fuel: "₹16 / km",
-    above: "₹22 / km",
+    rent: "₹3,600 / day",
+    fuel: "₹18 / km",
+    above: "₹25 / km",
     
   },
   {

@@ -13,11 +13,11 @@ export function UtilityBar() {
 
         {/* Phone Number */}
         <a
-          href={`tel:+91${BUSINESS.phones[1]}`}
+          href={`tel:+91${BUSINESS.phones[0]}`}
           className="flex items-center gap-2 text-gold-light transition-colors hover:text-ivory"
         >
           <Phone className="h-4 w-4 shrink-0" />
-          <span>{BUSINESS.phones[1]}</span>
+          <span>{BUSINESS.phones[0]}</span>
         </a>
 
         {/* WhatsApp */}

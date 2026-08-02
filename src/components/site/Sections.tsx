@@ -136,6 +136,11 @@ const SERVICES = [
     title: "Honeymoon Packages",
     desc: "Honeymoon packages for newlyweds, candlelight dinners,luxury stays, and unforgettable moments.",
   },
+  {
+    icon: Briefcase,
+    title: "Corporate Packages",
+    desc: "Corporate travel packages for business trips, site visits and productive experiences.",
+  },
 ];
 
 
