@@ -47,13 +47,11 @@ const FLEET: FleetItem[] = [
   {
     img: Innova,
     name: "Tempo Traveller",
-    seats: "12 – 18 Seater",
+    seats: "12 Seater",
+    rent: "₹2,600 / day",
     fuel: "₹18 / km",
     above: "₹25 / km",
-    variants: [
-      { label: "12 Seater", rent: "₹2,600 / day" },
-      { label: "18 Seater", rent: "₹3,600 / day" },
-    ],
+    
   },
   {
     img: Ertiga,
@@ -70,6 +68,15 @@ const FLEET: FleetItem[] = [
     rent: "₹2,000 / day",
     fuel: "₹11 / km",
     above: "₹17 / km",
+  },
+  {
+    img: Innova,
+    name: "Tempo Traveller",
+    seats: "18 Seater",
+    rent: "₹3,600 / day",
+    fuel: "₹18 / km",
+    above: "₹25 / km",
+    
   },
 ];
 
@@ -121,33 +128,8 @@ export function Fleet() {
                       <Users className="h-3.5 w-3.5" /> {f.seats}
                     </p>
                     <dl className="mt-4 flex-1 space-y-2 text-sm">
-                      {f.variants ? (
-                        <div className="border-b border-border/70 pb-1.5">
-                          <dt className="text-muted-foreground">Rent / day (below 300 km)</dt>
-                          <dd className="mt-1.5 space-y-1">
-                            {f.variants.map((v) => (
-                              <div
-                                key={v.label}
-                                className="flex justify-between rounded-lg bg-secondary/60 px-2.5 py-1.5"
-                              >
-                                <span className="text-xs font-medium text-muted-foreground">
-                                  {v.label}
-                                </span>
-                                <span className="text-sm font-semibold text-primary">
-                                  {v.rent}
-                                </span>
-                              </div>
-                            ))}
-                          </dd>
-                        </div>
-                      ) : (
-                        <div className="flex justify-between gap-2 border-b border-border/70 pb-1.5">
-                          <dt className="text-muted-foreground">Rent / day (below 300 km)</dt>
-                          <dd className="font-semibold text-primary">{f.rent}</dd>
-                        </div>
-                      )}
-
                       {[
+                        ["Rent / day (below 300 km)", f.rent],
                         ["Fuel charge / km", f.fuel],
                         ["Rate above 300 km", f.above],
                       ].map(([k, v]) => (

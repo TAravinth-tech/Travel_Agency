@@ -17,6 +17,8 @@ import trivandrum from "@/assets/Trivandrum.png";
 import cochin from "@/assets/cochin.png";
 import alleppey from "@/assets/alleppey.png";
 import pondicherry from "@/assets/pondicherry.png";
+import Tirupati from "@/assets/pkg-tirupathi.png";
+import Bangalore from "@/assets/pkg-bangalore.png";
 
 
 
@@ -143,6 +145,16 @@ const AREAS = [
     name: "pondicherry",
     tagline: "French colonial architecture, yellow cafes",
     image: pondicherry,
+  },
+  {
+    name: "Tirupati",
+    tagline: "lush hills, Tirumala Venkateswara Temple",
+    image: Tirupati,
+  },
+  {
+    name: "Bangalore",
+    tagline: "Garden City, modern skyline, tech parks",
+    image: Bangalore,
   },
 ];
 
